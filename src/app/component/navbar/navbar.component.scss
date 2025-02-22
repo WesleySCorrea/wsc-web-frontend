@@ -1,0 +1,37 @@
+.container-navbar {
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.navbutton {
+    display: flex;
+    flex-direction: row;
+    padding: 0 15px;
+    overflow: hidden;
+}
+
+.navbutton button {
+    flex-shrink: 1; /* Permite que os botões diminuam caso não caibam */
+    white-space: nowrap; /* Impede que o texto quebre */
+    overflow: hidden; /* Esconde o excesso de texto */
+    text-overflow: ellipsis;
+    margin: 5px;
+    width: 80px;
+    height: 25px;
+    flex-shrink: 1;
+    border-radius: 8px;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-color: var(--button-color);
+    color: white;
+}
+
+.navbutton button:hover {
+    background-color: var(--button-hover);
+}
