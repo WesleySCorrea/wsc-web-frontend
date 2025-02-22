@@ -7,6 +7,17 @@
     height: 60px;
     padding: 0 20px;
     box-sizing: border-box;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
+}
+
+.logo img {
+    width: 30px;
+    height: auto;
+}
+
+.icon img {
+    width: 30px;
+    height: auto;
 }
 
 .navbutton {

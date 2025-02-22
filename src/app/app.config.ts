@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideHttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -12,6 +13,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
     provideHttpClient(),
-    importProvidersFrom(FormsModule),
+    importProvidersFrom(FormsModule, CommonModule),
   ]
 };
