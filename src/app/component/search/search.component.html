@@ -1,16 +1,16 @@
 <div>
     <form class="search-container" (ngSubmit)="findByCars()">
-        <input type="text" placeholder="Placa..." [(ngModel)]="placa" name="placa">
-        <input list="empresas" placeholder="Empresa..." [(ngModel)]="empresa" name="empresa">
+        <input type="text" placeholder="Placa..." [(ngModel)]="plate" name="placa">
+        <input list="empresas" placeholder="Empresa..." [(ngModel)]="enterprise" name="empresa">
         <datalist id="empresas">
             <option value="Empresa A"></option>
             <option value="Empresa B"></option>
             <option value="Empresa C"></option>
             <option value="Empresa D"></option>
         </datalist>
-        <select [(ngModel)]="tipo" name="tipo">
+        <select [(ngModel)]="type" name="tipo">
             <option value="">Tipo...</option>
-            <option value="carro">Carro</option>
+            <option value="Car">Car</option>
             <option value="caminhao">Caminhão</option>
             <option value="van">Van</option>
         </select>
