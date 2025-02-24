@@ -1,0 +1,21 @@
+.button-create {
+    flex-shrink: 1; /* Permite que os botões diminuam caso não caibam */
+    white-space: nowrap; /* Impede que o texto quebre */
+    overflow: hidden; /* Esconde o excesso de texto */
+    margin: 0 20px;
+    margin-bottom: 20px;
+    text-overflow: ellipsis;
+    width: 100%;
+    max-width: 150px;
+    height: 25px;
+    flex-shrink: 1;
+    border-radius: 8px;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-color: var(--button-color);
+    color: white;
+}
+
+.button-create:hover {
+    background-color: var(--button-hover);
+}

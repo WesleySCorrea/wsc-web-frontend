@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Car } from '../../../model/car/car.model';
 import { CarService } from '../../service/cars/car.service';
 import { FormsModule } from '@angular/forms';
 import { Page } from '../../../model/page.model';
+import { CarTableComponent } from "../car-table/car-table.component";
 
 @Component({
   selector: 'app-search',
@@ -22,17 +23,17 @@ export class SearchComponent {
 
   cars!: Page<Car>;
 
+  @Output() carSearch = new EventEmitter<Page<Car>>();
+
   constructor(private carService: CarService) { }
 
   ngOnInit(): void {
-    console.log("antes do NgInit");
-    console.log(this.cars)
+    console.log("Componente de pesquisa carregado, realizando busca inicial...", this.cars);
     this.findByCars();
-    console.log("depois do NgInit");
-    console.log(this.cars)
+    console.log("Fim do ngOnInit - SEARCH COOMPONET", this.cars);
   }
 
-  findByCars() {
+  findByCars(): void {
     const filters = {
       plate: this.plate || undefined,
       enterprise: this.enterprise || undefined,
@@ -44,7 +45,15 @@ export class SearchComponent {
 
     this.carService.findByCars(filters).subscribe((result) => {
       this.cars = result;
-      console.log(this.cars);
+      console.log("Na chamada findByCars - SearchComponet", this.cars);
+      this.carSearch.emit(result);
     });
+  }
+
+  findByCarsPage(page: number, size: number): void {
+    this.page = page;
+    this.size = size;
+    console.log("Página atualizada para:", this.page, this.size);
+    this.findByCars();
   }
 }

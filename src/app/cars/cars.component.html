@@ -1,1 +1,7 @@
-<app-search></app-search>
+<app-search (carSearch)="onFindByCars($event)"></app-search>
+<!-- Chama o evento de pesquisa e passa os dados para CarsComponent -->
+
+<app-car-table [cars]="cars" (pageChange)="onFindByCarsPage($event.page, $event.size)"></app-car-table>
+<!-- Passa os dados da tabela e escuta a mudança de página -->
+
+<button class="button-create">Adicionar Novo</button>

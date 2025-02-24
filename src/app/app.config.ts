@@ -7,6 +7,8 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 import { provideHttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,6 +16,12 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
     provideHttpClient(),
-    importProvidersFrom(FormsModule, CommonModule), provideAnimationsAsync(),
+    importProvidersFrom(
+      FormsModule,
+      CommonModule,
+      MatTableModule,
+      MatPaginatorModule,
+    ),
+    provideAnimationsAsync(),
   ]
 };

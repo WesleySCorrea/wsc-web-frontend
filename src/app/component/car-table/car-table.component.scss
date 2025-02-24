@@ -1,0 +1,38 @@
+.tab-container {
+    margin: 20px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 4px solid var(--primary-color);
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    overflow: hidden;
+    table-layout: fixed;
+}
+
+th, td {
+    text-align: left;
+    height: 30px; /* Definido para no máximo 30px */
+    min-height: 30px; /* Garante que a altura mínima seja 30px */
+    max-height: 30px; /* Garante que a altura máxima seja 30px */
+    vertical-align: middle;
+}
+
+th {
+    background-color: var(--primary-color) !important;
+    color: white;
+    font-weight: bold;
+}
+
+.clickable-row {
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  
+    &:hover {
+      background-color: rgba(0, 123, 255, 0.1);
+    }
+  }
