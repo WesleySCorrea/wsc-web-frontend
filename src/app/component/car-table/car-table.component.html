@@ -1,30 +1,30 @@
 <div class="tab-container">
     <table mat-table [dataSource]="dataSource">
-        <ng-container class="id-colum" matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef>ID</th>
-            <td mat-cell *matCellDef="let car; let i = index">
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef class="id-colum">ID</th>
+            <td mat-cell *matCellDef="let car; let i = index" class="id-colum">
                 {{ (cars.number * cars.size) + i + 1 }}
             </td>
         </ng-container>
 
         <ng-container matColumnDef="placa">
-            <th mat-header-cell *matHeaderCellDef>Placa</th>
-            <td mat-cell *matCellDef="let car">{{ car.plate }}</td>
+            <th mat-header-cell *matHeaderCellDef class="place-colum">Placa</th>
+            <td mat-cell *matCellDef="let car" class="place-colum">{{ car.plate }}</td>
         </ng-container>
 
         <ng-container matColumnDef="empresa">
-            <th mat-header-cell *matHeaderCellDef>Empresa</th>
-            <td mat-cell *matCellDef="let car">{{ car.enterpriseName }}</td>
+            <th mat-header-cell *matHeaderCellDef class="emp-colum">Empresa</th>
+            <td mat-cell *matCellDef="let car" class="emp-colum">{{ car.enterpriseName }}</td>
         </ng-container>
 
         <ng-container matColumnDef="tipo">
-            <th mat-header-cell *matHeaderCellDef>Tipo</th>
-            <td mat-cell *matCellDef="let car">{{ car.type }}</td>
+            <th mat-header-cell *matHeaderCellDef class="tipo-colum">Tipo</th>
+            <td mat-cell *matCellDef="let car" class="tipo-colum">{{ car.type }}</td>
         </ng-container>
 
         <ng-container matColumnDef="vencimento">
-            <th mat-header-cell *matHeaderCellDef>Vencimento</th>
-            <td mat-cell *matCellDef="let car">{{ car.maturity | date: 'dd/MM/yyyy' }}</td>
+            <th mat-header-cell *matHeaderCellDef class="venc-colum">Vencimento</th>
+            <td mat-cell *matCellDef="let car" class="venc-colum">{{ car.maturity | date: 'dd/MM/yyyy' }}</td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

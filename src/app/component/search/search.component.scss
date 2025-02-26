@@ -24,6 +24,10 @@
     box-sizing: border-box;
 }
 
+mat-form-field {
+    height: 25px;
+}
+
 .search-container select {
     width: 100px;
 }
@@ -38,10 +42,6 @@
 
 .search-container select {
     width: 120px;
-}
-
-.search-container input:nth-child(4) {
-    width: 150px;
 }
 
 .search-container button {

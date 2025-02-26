@@ -6,10 +6,13 @@ import { Page } from '../../../model/page.model';
 import { EnterpriseInfo } from '../../../model/enterprise/enterprise.model';
 import { EnterpriseService } from '../../service/enterprises/enterprise.service';
 import { CommonModule } from '@angular/common';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { CalendarEvent } from 'angular-calendar';
 
 @Component({
   selector: 'app-search',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, MatDatepickerModule, MatFormFieldModule],
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss'
 })
@@ -20,24 +23,23 @@ export class SearchComponent {
   enterpriseName: string = '';
   type: string = '';
   vencimento: string = '';
+  startDate: string = '';
+  endDate: string = '';
   page: number = 0;
   size: number = 5;
 
   cars!: Page<Car>;
   enterprises: EnterpriseInfo[] = [];
+  typeList: string[] = [];
 
   @Output() carSearch = new EventEmitter<Page<Car>>();
 
   constructor(private carService: CarService, private enterpriseService: EnterpriseService) { }
 
   ngOnInit(): void {
-    console.log("Componente de pesquisa carregado, realizando busca inicial...", this.cars);
     this.findByCars();
-    console.log("Carregado lista de cars - OnInit", this.cars);
-
-    console.log("Carregando lista de empresas, realizando busca inicial...", this.enterprises);
     this.loadEnterprises();
-    console.log("Fim do ngOnInit - SEARCH COOMPONET - Lista de Empresas Completa?", this.enterprises);
+    this.loadTypes();
   }
 
   findByCars(): void {
@@ -45,14 +47,14 @@ export class SearchComponent {
       plate: this.plate || undefined,
       enterprise: this.enterpriseName || undefined,
       type: this.type || undefined,
-      vencimento: this.vencimento || undefined,
+      startDate: this.startDate || undefined,
+      endDate: this.endDate || undefined,
       page: this.page.toString() || undefined,
       size: this.size.toString() || undefined,
     };
 
     this.carService.findByCars(filters).subscribe((result) => {
       this.cars = result;
-      console.log("Na chamada findByCars - SearchComponet", this.cars);
       this.carSearch.emit(result);
     });
   }
@@ -60,14 +62,39 @@ export class SearchComponent {
   findByCarsPage(page: number, size: number): void {
     this.page = page;
     this.size = size;
-    console.log("Página atualizada para:", this.page, this.size);
     this.findByCars();
   }
 
-  loadEnterprises() {
+  loadEnterprises(): void {
     this.enterpriseService.loadEnterprises().subscribe((result) => {
       this.enterprises = result
-      console.log("Na chamada loadEnterprises - SearchComponet", this.enterprises);
     })
+  }
+
+  loadTypes(): void {
+    const filters = {
+      enterprise: this.enterpriseName || undefined,
+      startDate: this.startDate || undefined,
+      endDate: this.endDate || undefined,
+    };
+
+    this.carService.loadTypes(filters).subscribe((result) => {
+      this.typeList = result;
+    });
+  }
+
+  set enterprise(value: string) {
+    this.enterpriseName = value;
+    this.loadTypes();
+  }
+
+  set start(value: string) {
+    this.startDate = value;
+    this.loadTypes();
+  }
+
+  set end(value: string) {
+    this.endDate = value;
+    this.loadTypes();
   }
 }

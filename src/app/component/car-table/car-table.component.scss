@@ -11,7 +11,7 @@ table {
     border-spacing: 0;
     width: 100%;
     overflow: hidden;
-    table-layout: fixed;
+    table-layout: auto;
 }
 
 th, td {
@@ -35,4 +35,44 @@ th {
     &:hover {
       background-color: rgba(0, 123, 255, 0.1);
     }
-  }
+}
+
+.id-colum {
+    width: auto !important; 
+    max-width: 30px !important;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.place-colum {
+    width: auto !important; 
+    max-width: 50px !important;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.emp-colum {
+    width: auto !important; 
+    max-width: 500px !important;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.tipo-colum {
+    width: auto !important; 
+    max-width: 500px !important;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.venc-colum {
+    width: auto !important; 
+    max-width: 100px !important;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
