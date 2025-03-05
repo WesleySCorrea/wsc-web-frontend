@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Car } from '../../../model/car/car.model';
+import { Car, SaveCar } from '../../../model/car/car.model';
 import { Page } from '../../../model/page.model';
 
 @Injectable({
@@ -42,5 +42,12 @@ export class CarService {
     }
 
     return this.http.get<string[]>(apiUrl, { headers, params });
+  }
+
+  saveCar(car: SaveCar): Observable<Car> {
+    const apiUrl = this.host + 'cars';
+    const headers = new HttpHeaders({ 'Authorization': `Bearer ${this.token}` });
+
+    return this.http.post<Car>(apiUrl, car, { headers });
   }
 }

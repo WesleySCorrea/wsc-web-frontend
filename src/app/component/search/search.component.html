@@ -9,7 +9,7 @@
             <option value="">Tipo...</option>
             <option *ngFor="let type of typeList" [value]="type">{{ type }}</option>
         </select>
-        <input type="text" placeholder="Vencimento..." [(ngModel)]="vencimento" name="vencimento">
+        <input type="date" placeholder="Vencimento..." [(ngModel)]="vencimento" name="vencimento">
         <button type="submit">Buscar</button>
     </form>
 </div>

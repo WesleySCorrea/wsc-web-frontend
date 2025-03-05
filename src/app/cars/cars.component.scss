@@ -1,4 +1,5 @@
 .button-create {
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
     flex-shrink: 1; /* Permite que os botões diminuam caso não caibam */
     white-space: nowrap; /* Impede que o texto quebre */
     overflow: hidden; /* Esconde o excesso de texto */

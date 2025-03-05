@@ -22,8 +22,6 @@ export class SearchComponent {
   plate: string = '';
   enterpriseName: string = '';
   type: string = '';
-  vencimento: string = '';
-  startDate: string = '';
   endDate: string = '';
   page: number = 0;
   size: number = 5;
@@ -47,7 +45,6 @@ export class SearchComponent {
       plate: this.plate || undefined,
       enterprise: this.enterpriseName || undefined,
       type: this.type || undefined,
-      startDate: this.startDate || undefined,
       endDate: this.endDate || undefined,
       page: this.page.toString() || undefined,
       size: this.size.toString() || undefined,
@@ -74,7 +71,6 @@ export class SearchComponent {
   loadTypes(): void {
     const filters = {
       enterprise: this.enterpriseName || undefined,
-      startDate: this.startDate || undefined,
       endDate: this.endDate || undefined,
     };
 
@@ -88,13 +84,10 @@ export class SearchComponent {
     this.loadTypes();
   }
 
-  set start(value: string) {
-    this.startDate = value;
-    this.loadTypes();
-  }
-
-  set end(value: string) {
+  set vencimento(value: string) {
+    console.log("entrou em set do vencimento", value)
     this.endDate = value;
+    console.log("Setou a data", this.endDate)
     this.loadTypes();
   }
 }

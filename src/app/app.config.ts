@@ -9,6 +9,10 @@ import { CommonModule } from '@angular/common';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -21,6 +25,10 @@ export const appConfig: ApplicationConfig = {
       CommonModule,
       MatTableModule,
       MatPaginatorModule,
+      MatDatepickerModule,
+      MatNativeDateModule,
+      MatFormFieldModule,
+      MatInputModule
     ),
     provideAnimationsAsync(),
   ]

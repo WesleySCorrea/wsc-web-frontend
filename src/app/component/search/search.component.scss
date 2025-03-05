@@ -57,6 +57,7 @@ mat-form-field {
     box-sizing: border-box;
     background-color: var(--button-color);
     color: white;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
 }
 
 .search-container button:hover {

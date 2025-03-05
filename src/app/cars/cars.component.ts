@@ -5,10 +5,11 @@ import { CarDetailsComponent } from "./car-details/car-details.component";
 import { CarTableComponent } from "../component/car-table/car-table.component";
 import { Page } from '../../model/page.model';
 import { Car } from '../../model/car/car.model';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-cars',
-  imports: [SearchComponent, CarTableComponent],
+  imports: [SearchComponent, CarTableComponent, RouterModule],
   templateUrl: './cars.component.html',
   styleUrl: './cars.component.scss'
 })

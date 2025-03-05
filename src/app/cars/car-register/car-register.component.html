@@ -1,0 +1,29 @@
+<div class="register-cars-container">
+    <h1><img src="https://img.icons8.com/?size=100&id=3562&format=png&color=000000" alt="Ícone" class="icon"> Cadastro
+        de Veículos</h1>
+    <form (ngSubmit)="saveCar()">
+        <div class="div-container">
+            <input type="text" placeholder="Placa..." name="placa" [(ngModel)]="plate" class="input-plate">
+            <input type="text" placeholder="Chassis..." name="chassis" [(ngModel)]="chassis" class="input-chassis">
+            <input type="number" placeholder="Ano..." name="ano" [(ngModel)]="ano" class="input-ano"
+                (keydown)="validateAno($event)" required>
+        </div>
+        <div class="div-container">
+            <input list="empresas" placeholder="Empresa..." [(ngModel)]="enterprises" name="empresa">
+            <datalist id="empresas">
+                <option *ngFor="let enterprise of enterprises" [value]="enterprise.name"></option>
+            </datalist>
+            <button class="button-conttainer">Adicionar Nova Empresa</button>
+        </div>
+        <div class="div-container">
+            <select [(ngModel)]="typeList" name="tipo">
+                <option value="">Tipo...</option>
+                <option *ngFor="let type of typeList" [value]="type">{{ type }}</option>
+            </select>
+            <button class="button-conttainer">Adicionar Novos Tipos</button>
+        </div>
+        <div>
+            <button class="button-conttainer-register" type="submit">Cadastrar Veículo</button>
+        </div>
+    </form>
+</div>
