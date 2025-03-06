@@ -4,10 +4,11 @@ import { EnterpriseInfo } from '../../../model/enterprise/enterprise.model';
 import { CarService } from '../../service/cars/car.service';
 import { SaveCar } from '../../../model/car/car.model';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-car-register',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, RouterModule],
   templateUrl: './car-register.component.html',
   styleUrl: './car-register.component.scss'
 })

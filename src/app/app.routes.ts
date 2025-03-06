@@ -6,6 +6,7 @@ import { EnterprisesComponent } from './enterprises/enterprises.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { CarDetailsComponent } from './cars/car-details/car-details.component';
 import { CarRegisterComponent } from './cars/car-register/car-register.component';
+import { EnterpriseRegisterComponent } from './enterprises/enterprise-register/enterprise-register.component';
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', component: HomeComponent },
@@ -14,5 +15,6 @@ export const routes: Routes = [
     { path: 'cars/register', pathMatch: 'full', component: CarRegisterComponent },
     { path: 'cars/:id', pathMatch: 'full', component: CarDetailsComponent },
     { path: 'enterprises', pathMatch: 'full', component: EnterprisesComponent },
+    { path: 'enterprises/register', pathMatch: 'full', component: EnterpriseRegisterComponent },
     { path: 'tasks', pathMatch: 'full', component: TasksComponent },
 ];
