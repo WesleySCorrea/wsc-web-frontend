@@ -4,7 +4,7 @@ import { EnterpriseInfo } from '../../../model/enterprise/enterprise.model';
 import { CarService } from '../../service/cars/car.service';
 import { SaveCar } from '../../../model/car/car.model';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-car-register',
@@ -19,7 +19,7 @@ export class CarRegisterComponent {
   enterprises!: EnterpriseInfo[];
   typeList!: string[];
 
-  constructor(private carService: CarService) { }
+  constructor(private carService: CarService, private router: Router) { }
 
 
   validateAno(event: any) {
@@ -46,8 +46,11 @@ export class CarRegisterComponent {
       (result) => {
         console.log(result);
         console.log('Carro salvo com sucesso:', result);
+        alert("Veiculo Criado com Sucesso.");
+        this.router.navigate(['/cars', result.id]);
       },
       (error) => {
+        alert("Erro ao cadastrar o Veículo.");
         console.error('Erro ao salvar o carro:', error);
       })
   }

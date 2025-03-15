@@ -7,6 +7,14 @@ export interface Car {
     vencimento: string;
 }
 
+export interface CarDetails {
+    id: number;
+    plate: string;
+    chassis: string;
+    enterpriseName: string;
+    type: string;
+}
+
 export interface SaveCar {
     plate: string;
     year: number;

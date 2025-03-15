@@ -1,1 +1,54 @@
-<p>car-details works!</p>
+<div class="cars-details-container">
+    <div class="info-container" *ngIf="car">
+        <div class="form-container">
+            <h1><img src="https://img.icons8.com/?size=100&id=3562&format=png&color=000000" alt="Ícone"
+                    class="icon-title">Info de Veiculos</h1>
+            <form (ngSubmit)="saveCar()">
+                <!-- Linha 1: ID e Placa -->
+                <div class="row">
+                    <div>
+                        <label for="id">ID:</label>
+                        <input id="id" type="number" [(ngModel)]="car.id" name="id" disabled />
+                    </div>
+                    <div>
+                        <label for="placa">Placa:</label>
+                        <input id="placa" type="text" [(ngModel)]="car.plate" name="placa" [disabled]="!isEditable" />
+                    </div>
+                </div>
+
+                <!-- Linha 2: Chassi -->
+                <div class="row">
+                    <div class="full-width">
+                        <label for="chassis">Chassi:</label>
+                        <input id="chassis" type="text" [(ngModel)]="car.chassis" name="chassis"
+                            [disabled]="!isEditable" />
+                    </div>
+                </div>
+
+                <!-- Linha 3: Tipo e Empresa -->
+                <div class="row">
+                    <div>
+                        <label for="tipo">Tipo:</label>
+                        <input id="tipo" type="text" [(ngModel)]="car.type" name="tipo" disabled="true" />
+                    </div>
+                    <div>
+                        <label for="empresa">Empresa:</label>
+                        <input id="empresa" type="text" [(ngModel)]="car.enterpriseName" name="empresa"
+                            disabled="true" />
+                    </div>
+                </div>
+
+                <!-- Botão Editar/Salvar -->
+                <div [ngClass]="{ 'button-container': true, 'single-button': !isEditable }">
+                    <button type="button" *ngIf="isEditable" (click)="cancelEdit()">Cancelar</button>
+                    <button (click)="toggleEdit()">{{ isEditable ? 'Salvar' : 'Editar' }}</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Direita: Imagem -->
+        <div class="image-container">
+            <img [src]="imageUrl" alt="Ícone" class="icon">
+        </div>
+    </div>
+</div>

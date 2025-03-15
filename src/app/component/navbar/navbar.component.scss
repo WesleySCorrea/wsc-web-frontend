@@ -28,12 +28,12 @@
 }
 
 .navbutton button {
-    flex-shrink: 1; /* Permite que os botões diminuam caso não caibam */
-    white-space: nowrap; /* Impede que o texto quebre */
-    overflow: hidden; /* Esconde o excesso de texto */
+    flex-shrink: 1;
+    white-space: nowrap;
+    overflow: hidden;
     text-overflow: ellipsis;
     margin: 5px;
-    width: 80px;
+    width: 150px;
     height: 25px;
     flex-shrink: 1;
     border-radius: 8px;

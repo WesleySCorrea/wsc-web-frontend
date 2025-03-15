@@ -1,0 +1,119 @@
+.cars-details-container {
+    max-width: 600px;
+    background-color: white;
+    margin: 50px auto;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 4px solid var(--primary-color);
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    text-align: center;
+}
+
+.cars-details-container .info-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+.cars-details-container h1 {
+    width: 100%;
+    margin: 30px;
+    text-align: left; /* Alinha o texto à esquerda */
+    padding-left: 20px; /* Adiciona um pequeno espaço à esquerda do título */
+}
+
+.cars-details-container .icon-title {
+    margin: 0 20px;
+    width: 35px;
+    height: auto;
+}
+
+.form-container {
+    flex: 1;
+}
+
+.image-container {
+    flex: 0.2;
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+.image-container img {
+    width: 100px;
+    height: auto;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.row div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.row label {
+    font-size: 10px; /* Diminui o tamanho do texto do label */
+    font-weight: bold;
+    margin-bottom: 3px; /* Aproxima o label do input */
+    text-align: left; /* Alinha o texto do label à esquerda */
+}
+
+.row input {
+    width: 100%; /* Faz o input ocupar todo o espaço do div */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.cars-details-container input {
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    box-sizing: border-box;
+    flex: 1;
+    min-width: 50px;
+    height: 25px;
+    box-sizing: border-box;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    justify-content: space-between; /* Separa os botões */
+    margin-top: 30px;
+}
+/* Estilo para o botão "Cancelar" (fica à esquerda quando visível) */
+.button-container button:first-child {
+    margin-right: 0; /* Move "Cancelar" para a esquerda */
+}
+
+/* Quando "Editar" estiver visível, ele ficará fixo à direita */
+.button-container button:last-child {
+    margin-left: auto; /* Garante que "Editar" sempre ficará à direita */
+}
+
+.cars-details-container button {
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
+    flex-shrink: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 200px;
+    height: 25px;
+    flex-shrink: 1;
+    border-radius: 8px;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-color: var(--button-color);
+    color: white;
+}
+
+.cars-details-container button:hover {
+    background-color: var(--button-hover);
+}
