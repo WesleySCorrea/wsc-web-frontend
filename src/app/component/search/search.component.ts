@@ -27,8 +27,8 @@ export class SearchComponent {
   size: number = 5;
 
   cars!: Page<Car>;
-  enterprises: EnterpriseInfo[] = [];
-  typeList: string[] = [];
+  enterprises!: EnterpriseInfo[];
+  typeList!: string[];
 
   @Output() carSearch = new EventEmitter<Page<Car>>();
 
@@ -40,7 +40,14 @@ export class SearchComponent {
     this.loadTypes();
   }
 
+  searchCars(): void {
+    this.page = 0,
+      this.size = 5
+    this.findByCars();
+  }
+
   findByCars(): void {
+
     const filters = {
       plate: this.plate || undefined,
       enterprise: this.enterpriseName || undefined,

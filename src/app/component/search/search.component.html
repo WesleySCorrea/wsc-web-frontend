@@ -1,5 +1,5 @@
 <div>
-    <form class="search-container" (ngSubmit)="findByCars()">
+    <form class="search-container" (ngSubmit)="searchCars()">
         <input type="text" placeholder="Placa..." [(ngModel)]="plate" name="placa">
         <input list="empresas" placeholder="Empresa..." [(ngModel)]="enterprise" name="empresa">
         <datalist id="empresas">

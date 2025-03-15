@@ -9,14 +9,14 @@
                 (keydown)="validateAno($event)" required>
         </div>
         <div class="div-container">
-            <input list="empresas" placeholder="Empresa..." [(ngModel)]="enterprises" name="empresa">
+            <input list="empresas" placeholder="Empresa..." [(ngModel)]="enterpriseName" name="empresa">
             <datalist id="empresas">
                 <option *ngFor="let enterprise of enterprises" [value]="enterprise.name"></option>
             </datalist>
             <button class="button-conttainer" [routerLink]="['/enterprises/register']">Adicionar Nova Empresa</button>
         </div>
         <div class="div-container">
-            <select [(ngModel)]="typeList" name="tipo">
+            <select [(ngModel)]="type" name="tipo">
                 <option value="">Tipo...</option>
                 <option *ngFor="let type of typeList" [value]="type">{{ type }}</option>
             </select>
