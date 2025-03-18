@@ -59,15 +59,19 @@
     flex-direction: column;
 }
 
+.row .year {
+    max-width: 80px;
+}
+
 .row label {
-    font-size: 10px; /* Diminui o tamanho do texto do label */
+    font-size: 10px;
     font-weight: bold;
-    margin-bottom: 3px; /* Aproxima o label do input */
-    text-align: left; /* Alinha o texto do label à esquerda */
+    margin-bottom: 3px;
+    text-align: left;
 }
 
 .row input {
-    width: 100%; /* Faz o input ocupar todo o espaço do div */
+    width: 100%;
     padding: 5px;
     border-radius: 5px;
 }

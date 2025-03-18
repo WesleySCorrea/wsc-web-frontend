@@ -11,6 +11,7 @@ export interface CarDetails {
     id: number;
     plate: string;
     chassis: string;
+    year: number;
     enterpriseName: string;
     type: string;
 }
@@ -22,4 +23,12 @@ export interface SaveCar {
     enterpriseId: number;
     type: string;
     maturity: string;
+}
+
+export interface UpdateCar {
+    id: number;
+    plate: string;
+    year: number;
+    chassis: string;
+    type: string;
 }

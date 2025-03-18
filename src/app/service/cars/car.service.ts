@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Car, CarDetails, SaveCar } from '../../../model/car/car.model';
+import { Car, CarDetails, SaveCar, UpdateCar } from '../../../model/car/car.model';
 import { Page } from '../../../model/page.model';
 
 @Injectable({
@@ -57,5 +57,12 @@ export class CarService {
     const headers = new HttpHeaders({ 'Authorization': `Bearer ${this.token}` });
 
     return this.http.post<Car>(apiUrl, car, { headers });
+  }
+
+  updateCar(car: UpdateCar): Observable<CarDetails> {
+    const apiUrl = this.host + 'cars';
+    const headers = new HttpHeaders({ 'Authorization': `Bearer ${this.token}` });
+
+    return this.http.put<CarDetails>(apiUrl, car, { headers });
   }
 }

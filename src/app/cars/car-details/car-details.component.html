@@ -3,7 +3,7 @@
         <div class="form-container">
             <h1><img src="https://img.icons8.com/?size=100&id=3562&format=png&color=000000" alt="Ícone"
                     class="icon-title">Info de Veiculos</h1>
-            <form (ngSubmit)="saveCar()">
+            <form>
                 <!-- Linha 1: ID e Placa -->
                 <div class="row">
                     <div>
@@ -23,6 +23,10 @@
                         <input id="chassis" type="text" [(ngModel)]="car.chassis" name="chassis"
                             [disabled]="!isEditable" />
                     </div>
+                    <div class="year">
+                        <label for="year">Ano:</label>
+                        <input id="year" type="number" [(ngModel)]="car.year" name="year" [disabled]="!isEditable" />
+                    </div>
                 </div>
 
                 <!-- Linha 3: Tipo e Empresa -->
@@ -34,7 +38,7 @@
                     <div>
                         <label for="empresa">Empresa:</label>
                         <input id="empresa" type="text" [(ngModel)]="car.enterpriseName" name="empresa"
-                            disabled="true" />
+                            [disabled]="true" />
                     </div>
                 </div>
 

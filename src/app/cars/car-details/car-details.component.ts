@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CarDetails } from '../../../model/car/car.model';
+import { CarDetails, UpdateCar } from '../../../model/car/car.model';
 import { CarService } from '../../service/cars/car.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -30,23 +30,27 @@ export class CarDetailsComponent implements OnInit {
 
   toggleEdit() {
     if (!this.isEditable) {
-      // Antes de permitir edição, salvamos uma cópia dos dados atuais
       this.originalCar = { ...this.car };
     } else {
-      // Aqui você pode adicionar lógica para salvar as alterações
-      console.log('Carro salvo:', this.car);
+      const updateCar: UpdateCar = {
+        id: this.car.id,
+        plate: this.car.plate,
+        year: this.car.year,
+        chassis: this.car.chassis,
+        type: this.car.type
+      }
+
+      this.carService.updateCar(updateCar).subscribe(car => {
+        this.car = car;
+        this.originalCar = car;
+      })
     }
     this.isEditable = !this.isEditable;
   }
 
   cancelEdit() {
-    // Restaura os valores originais e desativa a edição
     this.car = { ...this.originalCar };
     this.isEditable = false;
-  }
-
-  saveCar() {
-
   }
 
   defineType(type: string) {
